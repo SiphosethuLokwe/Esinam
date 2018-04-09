@@ -27,7 +27,7 @@ $msg = '';
 $validate = new Validate();
 
 if($validate->UsernameMissing()){
-    $msg = $msg.'em=username is required';
+    $msg = $msg.'em=Username is required';
 }
 if($validate->PasswordMissing()){
     $msg = ($msg != '') ? $msg.'&&ps=Password is required' 
@@ -36,32 +36,35 @@ if($validate->PasswordMissing()){
 if($msg != ''){
     header($loginurl.'?'.$msg);
 }else{
-    $username = $validate->GetUsername();
+    $email = $validate->GetUsername();
     $password = $validate->GetPassword();
     try
     {
         $Conn = new Connection();
+        if(isset($Conn)
+        {
+            echo "true";
+        }
         $Comm = new Command();
         $acc_datamapper = new AccountDataMapper();
         $exist = $acc_datamapper->Exist($username, $Conn, $Comm);
+        // $isConfirmed = $acc_datamapper->IsConfirmed($username, $Conn, $Comm);
         if($exist)
         { 
-      
-                 if($acc_datamapper->PasswordMatch($username, $password, $Conn, $Comm))
+           //Check if is Confirmed
+           // Check if password is correct
+                    if($acc_datamapper->PasswordMatch($username, $password, $Conn, $Comm))
                  { 
                 //         // TODO: Redirect to profile
                         $_SESSION['user'] = $username;
                          $_SESSION['password'] =$password;
                       
                           header('Location: profile.php');
-                     }
+                 }
                      else
                      {
                          echo 'Incorrect password!';
                      }
-            
-
-     
 
         }
         else
@@ -120,5 +123,4 @@ class Validate{
     }
 }
 ?>
-
 

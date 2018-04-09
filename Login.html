@@ -6,17 +6,53 @@
     <!-- For IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+    <style>
+        .img-responsive {
+            height: auto;
+            width: auto;
+            max-height: 72px;
+            max-width: 250px;
+            vertical-align: top;
+            padding-top: 0%;
+        }
+    </style>
     <!-- For Resposive Device -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>Login</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="56x56" href="images/fav-icon/icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Newpost</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="56x56" href="assets/images/esinam.logo.png">
     <link rel="stylesheet" type="text/css" href="css/style1.css">
     <script type="text/javascript" src="vendor/jquery.2.2.3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/v.js"></script>
+
+    <script src="//cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="icon" href="assets/images/esinam.logo.png" type="image/x-icon" />
+    <!--font-Google-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,600,700,800" rel="stylesheet">
+    <!-- Font-awesome css -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- Magnific css -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- Owl carousel css -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Main style css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!--readmore jquery-->
+    <script src="/node_modules/readmore-js/readmore.min.js"></script>
     <script>
         $(document).ready(function() {
             var Message = getParamByName('msg');
@@ -47,60 +83,75 @@
     </script>
 </head>
 
-<body style="background:url('images/logo/P3xGRQy.jpg') ">
+
+
+
+
+<body style="background:url('assets/images/admin-login-background-images.jpg') ">
 
     <div class="div-label-span div-margin-bottom-5px">
         <!-- Logo -->
-        <div class="logo float-left tran4s" style="background-color:#00d747;margin-top:-20px;padding:2%;">
+        <div class="logo float-left tran4s" style="background-color:light;margin-top:-20px;padding:2%;">
             <a href="index.html">
-                <img src="images/logo/logo_white.png" width="200" alt="Logo">
+                <img src="assets/images/esinam.logo.png" width="200" alt="Logo" class="img-responsive">
             </a>
         </div>
-        <div style="color:White">
-            <h2>Log In</h2>
-        </div>
+
+
     </div>
+    <div class="container">
+        <img src="assets/images/download.jpg" width="200" alt="Logo" class="img-responsive" style="float:center">
+
+
+    </div>
+
     <div id="form-container">
-        <form id="form-login" action="login.php" method="POST">
-            <div>
-                <div id="div-error" style="color:red; font-size: 20px"></div>
+        <div class="container">
+            <h2>Log In</h2>
 
-                <div class="div-margin-bottom-5px">
-                    <div class="div-label-span div-margin-bottom-5px">
-                        <span>Email</span>
-                    </div>
-                    <div style="background-color:#fff;border:1px solid #ddd;overflow:auto;border-radius: 5px;">
-                        <span id="div-icon" class="glyphicon glyphicon-user div-icon">
-                                    </span>
-                        <input id="txtEmail" type="Email" name="email" class="txt" placeholder="Email" autocomplete="off" oninput="Validate(this)" oninvalid="Validate(this)" required />
-                        <span id="span-error-msg" class="span-error-msg"></span>
-                        <span id="span-warning-msg" class="span-warning-msg"></span>
-                    </div>
-                </div>
-                <div class="div-margin-bottom-5px">
-                    <div class="div-label-span div-margin-bottom-5px">
-                        <span>Password</span>
-                    </div>
-                    <div style="background-color:#fff;border:1px solid #ddd;overflow:auto;border-radius: 5px;">
-                        <span id="div-icon1" class="glyphicon glyphicon-lock div-icon">
-                            </span>
-                        <input id="txtPass" type="Password" name="password" data-id="1" pattern=".{6,}" class="txt" title="6 or more characyers" placeholder="Password" autocomplete="off" oninput="Validate0(this)" oninvalid="Validate0(this)" required />
-                        <span id="span-error-msgp1" class="span-error-msg"></span>
-                        <span id="span-warning-msgp1" class="span-warning-msg"></span>
-                    </div>
-                </div>
-
-                <div class="div-margin-bottom-5px">
-                    <input id="btnFindAccount" type="submit" class="btnStyle btnWidth" value="Login" name="signin" />
-                </div>
-                <div style="margin:30px 0 25px 0;">
-                    <a href="findaccount.html" style="color:#777;">Forgot password?</a>
-                </div>
+            <form id="form-login" action="Login.php" method="POST" class="form-group">
                 <div>
-                    <a href="createaccount.html">I do not have an account.</a>
+                    <div id="div-error" style="color:red; font-size: 20px"></div>
+
+                    <div class="div-margin-bottom-5px">
+                        <div class="div-label-span div-margin-bottom-5px">
+                            <span>Username</span>
+                        </div>
+                        <div>
+                            <span id="div-icon" class="glyphicon glyphicon-user div-icon" style="color:white">
+                                    </span>
+                            <input id="txtUsername"  name="username" placeholder="Username" autocomplete="off" oninput="Validate(this)" oninvalid="Validate(this)" required class="form-control" />
+                            <span id="span-error-msg" class="span-error-msg"></span>
+                            <span id="span-warning-msg" class="span-warning-msg"></span>
+                        </div>
+                    </div>
+
+                    <div class="div-margin-bottom-5px">
+                        <div class="div-label-span div-margin-bottom-5px">
+                            <span>Password</span>
+                        </div>
+                        <div>
+                            <span id="div-icon1" class="glyphicon glyphicon-lock div-icon" style="color:white"> </span>
+
+                            <input id="txtPass" type="Password" name="password" data-id="1" pattern=".{6,}" title="6 or more characters" placeholder="Password" autocomplete="off" oninput="Validate0(this)" oninvalid="Validate0(this)" required class="form-control" />
+                            <span id="span-error-msgp1" class="span-error-msg"></span>
+                            <span id="span-warning-msgp1" class="span-warning-msg"></span>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="div-margin-bottom-5px">
+                        <input id="btnFindAccount" type="submit" class="btnStyle btnWidth" value="Login" name="signin" />
+                    </div>
+                    <div style="margin:30px 0 25px 0;">
+                        <a href="findaccount.html" style="color:white;">Forgot password?</a>
+                    </div>
+                    <div>
+                        <!-- <a href="createaccount.html " style="color:white">I do not have an account.</a> -->
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </body>
 

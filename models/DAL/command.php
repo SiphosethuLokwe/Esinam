@@ -1,15 +1,15 @@
 <?php
     class Command{
 		//ACCOUNT
-			var $SqlInsertAccount = "INSERT INTO account(isConfirmed, isLocked, accountTypeId, lastUpdate, Username, Password) 
-			VALUES(:isConfirmed, :isLocked, :accountTypeId, :lastUpdate, :Username, :Password)";
-			var $CheckIfAccExists = "SELECT 1 from account WHERE Username = ? LIMIT 1";
-			var $CheckIfPassMatch = "SELECT 1 from account WHERE Username = ? and Password = ? LIMIT 1";
-			var $SqlConfirmed = "SELECT 1 from account WHERE Username = ? and isConfirmed = ? LIMIT 1";
-			var $SelectAccountId = "SELECT accountId from account WHERE Username = ?";
-			var $SqlUpdatePassword = "UPDATE account SET account.Password = ? WHERE accountId = ?";
-			var $SqlUpdateUserName = "UPDATE account SET Username = ? WHERE accountId = ?";
-			var $SqlConfirmAccount = "UPDATE account SET isConfirmed = ? WHERE accountId = ?";
+			// var $SqlInsertAccount = "INSERT INTO account(isConfirmed, isLocked, accountTypeId, lastUpdate, Username, Password) 
+			// VALUES(:isConfirmed, :isLocked, :accountTypeId, :lastUpdate, :Username, :Password)";
+			var $CheckIfAccExists = "SELECT 1 from user WHERE username = ? LIMIT 1";
+			var $CheckIfPassMatch = "SELECT 1 from user WHERE username = ? and password = ? LIMIT 1";
+			// var $SqlConfirmed = "SELECT 1 from account WHERE Username = ? and isConfirmed = ? LIMIT 1";
+			var $SelectAccountId = "SELECT user_id from user WHERE username = ?";
+			var $SqlUpdatePassword = "UPDATE  user SET account.Password = ? WHERE accountId = ?";
+			var $SqlUpdateUserName = "UPDATE account SET username = ? WHERE user_id = ?";
+			// var $SqlConfirmAccount = "UPDATE account SET isConfirmed = ? WHERE accountId = ?";
 
 		// ACCOUNTUID
 			var $SqlCreateUID = "INSERT INTO uniqueidentifier VALUES(UUID(),?,SYSDATE())";
