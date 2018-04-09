@@ -34,7 +34,7 @@
 
     <script src="//cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="icon" href="assets/images/esinam.logo.png" type="image/x-icon" />
+    <link rel="icon" href="assets/images/esinam.logo.png" type="image/x-icon" sizes="56x56" />
     <!--font-Google-->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,600,700,800" rel="stylesheet">
     <!-- Font-awesome css -->
@@ -67,20 +67,7 @@
             return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
         }
     </script>
-    <script>
-        $(document).ready(function() {
-            var Message = getParamByName('locked');
-            var diverror = document.getElementById('div-error');
-            diverror.innerHTML = Message;
-        });
 
-        function getParamByName(name) {
-            name = name.replace(/[\[]/, "\\[");
-            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-                results = regex.exec(location.search);
-            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-        }
-    </script>
 </head>
 
 
@@ -120,7 +107,7 @@
                         <div>
                             <span id="div-icon" class="glyphicon glyphicon-user div-icon" style="color:white">
                                     </span>
-                            <input id="txtUsername"  name="username" placeholder="Username" autocomplete="off" oninput="Validate(this)" oninvalid="Validate(this)" required class="form-control" />
+                            <input id="txtUsername" name="username" placeholder="Username" autocomplete="off" oninput="Validate(this)" oninvalid="Validate(this)" required class="form-control" />
                             <span id="span-error-msg" class="span-error-msg"></span>
                             <span id="span-warning-msg" class="span-warning-msg"></span>
                         </div>

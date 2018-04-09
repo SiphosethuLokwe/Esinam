@@ -36,18 +36,22 @@ if($validate->PasswordMissing()){
 if($msg != ''){
     header($loginurl.'?'.$msg);
 }else{
-    $email = $validate->GetUsername();
+    $username = $validate->GetUsername();
     $password = $validate->GetPassword();
     try
     {
         $Conn = new Connection();
-        if(isset($Conn)
+        if(isset($Conn))
         {
             echo "true";
         }
+        else
+        {
+            echo"false";
+        }
         $Comm = new Command();
         $acc_datamapper = new AccountDataMapper();
-        $exist = $acc_datamapper->Exist($username, $Conn, $Comm);
+        $exist = $acc_datamapper->Exist($username,$Conn,$Comm);
         // $isConfirmed = $acc_datamapper->IsConfirmed($username, $Conn, $Comm);
         if($exist)
         { 
@@ -63,7 +67,9 @@ if($msg != ''){
                  }
                      else
                      {
-                         echo 'Incorrect password!';
+                        $msg = $msg.'msg=Incorrect username or password';
+                        header($loginurl.'?'.$msg);
+
                      }
 
         }

@@ -21,7 +21,7 @@ class AccountDataMapper{
             return 0;
         }
     }
-     public function Exist($NewUsername, $Conn, $Comm){
+     public function Exist($username, $Conn, $Comm){
         try{
              $stmt = $Conn->Connect()->prepare($Comm->CheckIfAccExists);
              $stmt->bindParam(1, $username, PDO::PARAM_STR);
