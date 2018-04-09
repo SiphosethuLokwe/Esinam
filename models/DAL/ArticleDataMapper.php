@@ -22,10 +22,10 @@ class ArticleDataMapper{
         }
     }
 
-    public function SaveArticle($title,$description,$image,$date,$Conn,$Comm){
+    public function SaveArticle($article_title,$description,$image,$date,$Conn,$Comm){
         try{
             $stmt = $Conn->Connect()->prepare($Comm->InsertArticle);
-            $stmt->bindParam(1, $title, PDO::PARAM_STR);
+            $stmt->bindParam(1, $article_title, PDO::PARAM_STR);
             $stmt->bindParam(2, $description, PDO::PARAM_STR);
             $stmt->bindParam(3, $image, PDO::PARAM_LOB);
             $stmt->bindParam(4, $date, PDO::PARAM_STR);

@@ -45,7 +45,7 @@
 		
         //ARTICLE
 			var $SqlInsertArticle = "INSERT INTO article(title, description, image, date) VALUES(:title, :description, :image, :date)";
-			var $InsertArticle ="INSERT INTO article (title, description, image, date) VALUES(?, ?, ?, ?)";
+			var $InsertArticle ="INSERT INTO article (article_title, description, image, date) VALUES(?, ?, ?, ?)";
 			var $SqlSelectArticleById = "SELECT * FROM article WHERE aticleId = ?";
 			var $SqlSelectArticles = "SELECT * FROM article";
 			var $SqlUpdateArticle = "UPDATE article SET aticleId = :aticleId, title=:title, description =:description, image =:image, date= :date ";

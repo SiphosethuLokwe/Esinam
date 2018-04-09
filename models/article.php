@@ -3,7 +3,7 @@ class Article{
 
     // PROPERTIES
    
-    var $title;
+    var $article_title;
     var $description;
     var $image;
     var $date;
@@ -13,7 +13,7 @@ class Article{
     public function __construct($param_title, $param_description,$param_image, $param_date)
     {
         
-        $this->title = $param_title;
+        $this->article_title = $param_title;
         $this->description = $param_description;
         $this->image = $param_image;
         $this->date = $param_date;
@@ -28,10 +28,10 @@ class Article{
     // }
     
     public function SetTitle($param){
-        $this->title = $param;
+        $this->article_title = $param;
     }
     public function GetTitle(){
-        return $this->title;
+        return $this->article_title;
     }
 
     public function SetDescr($param){

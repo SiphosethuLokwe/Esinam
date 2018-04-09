@@ -11,10 +11,22 @@
             height: auto;
             width: auto;
             max-height: 72px;
-            max-width: 250px;
-            vertical-align: top;
+            max-width: 200px;
+            vertical-align:top;
             padding-top: 0%;
         }
+        
+        #login-form {
+            width: auto;
+            height: auto;
+            background-color: white;
+            padding-left: 50px;
+            border-radius: 25px;
+            border: 2px solid orange;
+            padding: 20px;
+        }
+        
+       
     </style>
     <!-- For Resposive Device -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,57 +99,63 @@
 
     </div>
     <div class="container">
-        <img src="assets/images/download.jpg" width="200" alt="Logo" class="img-responsive" style="float:center">
+        <!-- <img src="assets/images/download.jpg" width="200" alt="Logo" class="img-responsive" style="float:center"> -->
 
 
     </div>
 
     <div id="form-container">
+           
+
         <div class="container">
-            <h2>Log In</h2>
-
-            <form id="form-login" action="Login.php" method="POST" class="form-group">
-                <div>
-                    <div id="div-error" style="color:red; font-size: 20px"></div>
-
-                    <div class="div-margin-bottom-5px">
-                        <div class="div-label-span div-margin-bottom-5px">
-                            <span>Username</span>
-                        </div>
-                        <div>
-                            <span id="div-icon" class="glyphicon glyphicon-user div-icon" style="color:white">
-                                    </span>
-                            <input id="txtUsername" name="username" placeholder="Username" autocomplete="off" oninput="Validate(this)" oninvalid="Validate(this)" required class="form-control" />
-                            <span id="span-error-msg" class="span-error-msg"></span>
-                            <span id="span-warning-msg" class="span-warning-msg"></span>
-                        </div>
-                    </div>
-
-                    <div class="div-margin-bottom-5px">
-                        <div class="div-label-span div-margin-bottom-5px">
-                            <span>Password</span>
-                        </div>
-                        <div>
-                            <span id="div-icon1" class="glyphicon glyphicon-lock div-icon" style="color:white"> </span>
-
-                            <input id="txtPass" type="Password" name="password" data-id="1" pattern=".{6,}" title="6 or more characters" placeholder="Password" autocomplete="off" oninput="Validate0(this)" oninvalid="Validate0(this)" required class="form-control" />
-                            <span id="span-error-msgp1" class="span-error-msg"></span>
-                            <span id="span-warning-msgp1" class="span-warning-msg"></span>
-                        </div>
-                    </div>
+            
+            <div id="login-form">
+                    <h2>Log In</h2>
                     <br>
-                    <br>
-                    <div class="div-margin-bottom-5px">
-                        <input id="btnFindAccount" type="submit" class="btnStyle btnWidth" value="Login" name="signin" />
-                    </div>
-                    <div style="margin:30px 0 25px 0;">
-                        <a href="findaccount.html" style="color:white;">Forgot password?</a>
-                    </div>
+                <form id="form-login" action="Login.php" method="POST" class="form-group">
                     <div>
-                        <!-- <a href="createaccount.html " style="color:white">I do not have an account.</a> -->
+                        <div id="div-error" style="color:red; font-size: 20px"></div>
+
+                        <div class="div-margin-bottom-5px">
+                            <div class="div-label-span div-margin-bottom-5px">
+                                <h4>Username<h4>
+                            </div>
+                            <div>
+                                <span id="div-icon" class="glyphicon glyphicon-user div-icon" style="color:white">
+                                    </span>
+                                <input id="txtUsername" name="username" placeholder="Username" autocomplete="off" oninput="Validate(this)" oninvalid="Validate(this)" required class="form-control txtboxes " />
+                                <span id="span-error-msg" class="span-error-msg"></span>
+                                <span id="span-warning-msg" class="span-warning-msg"></span>
+                            </div>
+                        </div>
+<br>
+
+                        <div class="div-margin-bottom-5px">
+                            <div class="div-label-span div-margin-bottom-5px">
+                                <h4>Password</h4>
+                            </div>
+                            <div>
+                                <span id="div-icon1" class="glyphicon glyphicon-lock div-icon" style="color:white"> </span>
+
+                                <input id="txtPass" type="Password" name="password" data-id="1" pattern=".{6,}" title="6 or more characters" placeholder="Password" autocomplete="off" oninput="Validate0(this)" oninvalid="Validate0(this)" required class="form-control" />
+                                <span id="span-error-msgp1" class="span-error-msg"></span>
+                                <span id="span-warning-msgp1" class="span-warning-msg"></span>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="div-margin-bottom-5px">
+                            <input id="btnFindAccount" type="submit" class="btnStyle btnWidth btn btn-warning" value="Login" name="signin" />
+                        </div>
+                        <div style="margin:30px 0 25px 0;">
+                            <a href="findaccount.html" style="color:white;">Forgot password?</a>
+                        </div>
+                        <div>
+                            <!-- <a href="createaccount.html " style="color:white">I do not have an account.</a> -->
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </body>
