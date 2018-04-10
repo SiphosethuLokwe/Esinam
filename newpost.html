@@ -109,6 +109,10 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <!--readmore jquery-->
     <script src="/node_modules/readmore-js/readmore.min.js"></script>
+
+    <script src="js/validation.js"></script>
+
+
     <script>
         $(document).ready(function() {
             var Message = getParamByName('msg');
@@ -193,7 +197,7 @@
                 <input placeholder="Title" name="title" type="text" autofocus size="48" class="form-control" required>
                 <hr><br /><br />
                 <div id="div-error" style="color:red; font-size: 20px"> </div>
-                <input type="file" name="FileUpload" id="FileUpload">
+                <input id="FileUpload" type="file" name="FileUpload">
                 <hr>
 
                 <div>
@@ -202,7 +206,7 @@
                     <!--<input type="date" name="date"><label><strong> Date of article</strong></label><hr>-->
                 </div>
                 <div class="div-margin-bottom-5px">
-                    <input name="post" type="submit" value="Post" width="50px" class="btn btn-warning" onclick="ValidateFileUpload(even)" ; />
+                    <input id="btnPost" name="post" type="submit" value="Post" width="50px" class="btn btn-warning" onclick="ValidateFileUpload(this,event)" ; />
                 </div>
 
             </form>
@@ -226,5 +230,3 @@
         }
     }
 </script>
-
-</html>

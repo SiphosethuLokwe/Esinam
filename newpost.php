@@ -6,6 +6,7 @@ include ("models/DAL/connection.php");
 include ('models/DAL/Command.php');
 include ('models/DAL/ArticleDataMapper.php');
 include ('models/article.php');
+include ('js/validation.js');
 
 
 $Con = new Connection();
@@ -20,16 +21,30 @@ $article_title =$_POST['title'];
 $description = $_POST['content'];
 $date = date("Y-m-d");
 $image="";
+$fileName = $_FILES['FileUpload']['tmp_name'];
+$fileExt = explode('.', $fileName);
+$fileActualExt = strtolower(end($fileExt));
+ $allowed = array('jpg','jpeg','png','JPG');
 
-$target = "assets/images/".basename($_FILES['FileUpload']['name']);
-$image =file_get_contents($_File['FileUpload']['tmp_name']);
-$result=$article_datamaper->SaveArticle($article_title,$description,$image,$date,$Con,$Comm);
-move_uploaded_file($_FILES['tmp_name']['name'],$target);
-if($result)
+ if (in_array($fileActualExt,$allowed)){
+
+	$image =file_get_contents($_File['FileUpload']['tmp_name']);
+	$result=$article_datamaper->SaveArticle($article_title,$description,$image,$date,$Con,$Comm);
+
+	if($result)
 {
 	$msg = $msg.'msg="Success';
 	header($loginurl.'?'.$msg);
 }
+ }
+ else{
+	$msg = $msg.'msg="File must be a jpg,png,jpeg';
+	header($loginurl.'?'.$msg);
+ }
+// $target = "assets/images/".basename($_FILES['FileUpload']['name']);
+
+// move_uploaded_file($_FILES['tmp_name']['name'],$target);
+
 
 
 
@@ -115,55 +130,10 @@ if($result)
 //create article object
 // $Article = new Article($title, $description, $file, $date);
 
-	if ($result){
-
-		echo"success";
-		header("Location: newpost.php");
-	}	
+	
 
 }
 
 ?>
-<SCRIPT type="text/javascript">
-    function ValidateFileUpload(even) {
-        var fuData = document.getElementById('fileUpload');
-        var FileUploadPath = fuData.value;
-
-		//check if image 
-		if (Extension == "gif" || Extension == "png" || Extension == "bmp"
-                    || Extension == "jpeg" || Extension == "jpg") {
-
-// To Display
-                if (fuData.files && fuData.files[0]) {
-                    var reader = new FileReader();
-
-                    reader.onload = function(e) {
-                        $('#blah').attr('src', e.target.result);
-                    }
-
-                    reader.readAsDataURL(fuData.files[0]);
-                }
-
-            } 
-else {
-                alert("Photo only allows file types of GIF, PNG, JPG, JPEG and BMP. ");
-                event.preventDefault();
-
-
-            }
-//To check if user upload any file
-        if (FileUploadPath == '') {
-            FileUploadPath =='assets/images/esinam.logo.png';
-          
-        } 
-            // var Extension = FileUploadPath.substring(
-            //         FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
-
-//The file uploaded is an image
-
-
-        
-    }
-</SCRIPT>
 
 
