@@ -52,10 +52,10 @@ class ArticleDataMapper{
             return 0;
         }
     }
-    public function GetArticle($ArticleId,$Conn,$Comm){
+    public function GetArticle($article_id,$Conn,$Comm){
         try{
             $stmt = $Conn->Connect()->prepare($Comm->SqlSelectArticleById);
-            $stmt->bindValue(1, $ArticleId, PDO::PARAM_INT);
+            $stmt->bindValue(1, $article_id, PDO::PARAM_INT);
             $stmt->execute();
             return $stmt->fetch();
         }catch(PDOException $e){

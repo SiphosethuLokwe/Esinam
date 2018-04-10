@@ -1,3 +1,20 @@
+<?php
+include ("models/DAL/connection.php");
+include ("models/DAL/command.php");
+include ("models/DAL/ArticleDataMapper.php");
+
+$Conn = new Connection();
+$Comm = new Command();
+$article_datamapper = new  ArticleDataMapper();
+
+$results = $article_datamapper->GetArticles($Conn,$Comm);
+//print_r($results);
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -192,41 +209,36 @@
         <br>
         <div class="container">
             <form action="newpost.php" method="post" enctype="multipart/form-data" display:flex;>
-                <h2>Posts</h2>
-
-                <!-- <input placeholder="Title" name="title" type="text" autofocus size="48" class="form-control" required>
-                <hr><br /><br />
-                <div id="div-error" style="color:red; font-size: 20px"> </div>
-                <input id="FileUpload" type="file" name="FileUpload">
-                <hr>
-
-                <div>
-                    <textarea class="ckeditor form-control" placeholder="Content" name="content" rows="20" cols="50" required></textarea>
-                    <hr><br />
-                    <!--<input type="date" name="date"><label><strong> Date of article</strong></label><hr>-->
-                <!-- </div>
-                <div class="div-margin-bottom-5px">
-                    <input id="btnPost" name="post" type="submit" value="Post" width="50px" class="btn btn-warning" onclick="ValidateFileUpload(this,event)" ; />
-                </div>  -->
+                <h2>My Posts</h2>
+                <br>
+             
+            <?php 
+foreach($results as $row){
+    
+            echo '<div class="well well-lg">
+            <div class="card mb-4">
+            <img class="card-img-top" src="data:image/jpeg;base64,'.base64_encode($row->image).'"; alt="Card image cap">
+            <div class="card-body">
+              <h2 class="card-title"><a href="EditPost.php?id='.$row->article_id.'">'.$row->article_title.'</a></h2>
+              <p class="card-text"> '.$row->description.'</p>
+              <a href="#" class="btn btn-warning">Edit</a>
+              <div class="pull-right">
+              <a href="#" class="btn btn-danger">delete</a>
+              </div>
+            </div>
+            
+            <div class="card-footer text-muted">
+              Posted on '.$row->date.' by
+              <a href="#">Start Bootstrap</a>
+            </div>
+          </div>
+          </div>';
+}
+            ?>
 
             </form>
             <div>
             </div>
         </div>
     </div>
-
-
-
 </body>
-
-
-<script>
-    function myFunction() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-            x.className += " responsive";
-        } else {
-            x.className = "topnav";
-        }
-    }
-</script>
