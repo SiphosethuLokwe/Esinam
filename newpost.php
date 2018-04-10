@@ -19,49 +19,65 @@ if (isset($_POST['post'])){
 $article_title =$_POST['title'];
 $description = $_POST['content'];
 $date = date("Y-m-d");
+$image="";
 
-$file = $_FILES['FileUpload'];
-$fileName = $_FILES['FileUpload']['tmp_name'];
-$fileSize = $_FILES['FileUpload']['size'];
-$fileError =$_FILES['FileUpload']['error'];
-$fileType = $_FILES['FileUpload']['type'];
-$image = file_get_contents($fileName);
-$fileExt = explode('.', $fileName);
-$fileActualExt = strtolower(end($fileExt));
-$allowed = array('jpg','jpeg','png');
+$target = "assets/images/".basename($_FILES['FileUpload']['name']);
+$image =file_get_contents($_File['FileUpload']['tmp_name']);
+$result=$article_datamaper->SaveArticle($article_title,$description,$image,$date,$Con,$Comm);
+move_uploaded_file($_FILES['tmp_name']['name'],$target);
+if($result)
+{
+	$msg = $msg.'msg="Success';
+	header($loginurl.'?'.$msg);
+}
 
-if (in_array($fileActualExt,$allowed)){
-	if($fileError === 0){
 
-		if($fileSize < 1000000)
-		{
-			$result=$article_datamaper->SaveArticle($article_title,$description,$image,$date,$Con,$Comm);
-			$msg = $msg.'msg="Success';
-			header($loginurl.'?'.$msg);
+
+
+
+// $file = $_FILES['FileUpload'];
+// $fileName = $_FILES['FileUpload']['tmp_name'];
+// $fileSize = $_FILES['FileUpload']['size'];
+// $fileError =$_FILES['FileUpload']['error'];
+// $fileType = $_FILES['FileUpload']['type'];
+// $image = file_get_contents($fileName);
+// $fileExt = explode('.', $fileName);
+// $fileActualExt = strtolower(end($fileExt));
+// $allowed = array('jpg','jpeg','png','JPG');
+
+// if (in_array($fileActualExt,$allowed)){
+// 	if($fileError === 0){
+
+// 		if($fileSize < 1000000)
+// 		{
+// 			move_uploaded_file($fileName,$image);
+// 			$result=$article_datamaper->SaveArticle($article_title,$description,$image,$date,$Con,$Comm);
+// 			$msg = $msg.'msg="Success';
+// 			header($loginurl.'?'.$msg);
 		
            
-		}
-		else
-		{
-			$msg = $msg.'msg="your file is too big';
-			header($loginurl.'?'.$msg);
+// 		}
+// 		else
+// 		{
+// 			$msg = $msg.'msg="your file is too big';
+// 			header($loginurl.'?'.$msg);
 		
-		}
+// 		}
 
-	}
-	else
-	{
-		$msg = $msg.'msg="there was a problem uploading file';
-		header($loginurl.'?'.$msg);
+// 	}
+// 	else
+// 	{
+// 		$msg = $msg.'msg="there was a problem uploading file';
+// 		header($loginurl.'?'.$msg);
 	
-	}
+// 	}
 
-}
-else{
-	$msg = $msg.'msg="you cannot upload file of this type';
-		header($loginurl.'?'.$msg);
+// }
+// else{
+// 	$msg = $msg.'msg="you cannot upload file of this type';
+// 		header($loginurl.'?'.$msg);
 	
-}
+// }
 
 
 
