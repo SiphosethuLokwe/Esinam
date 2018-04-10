@@ -192,9 +192,9 @@
         <br>
         <div class="container">
             <form action="newpost.php" method="post" enctype="multipart/form-data" display:flex;>
-                <h2>Please write your article</h2>
+                <h2>Posts</h2>
 
-                <input placeholder="Title" name="title" type="text" autofocus size="48" class="form-control" required>
+                <!-- <input placeholder="Title" name="title" type="text" autofocus size="48" class="form-control" required>
                 <hr><br /><br />
                 <div id="div-error" style="color:red; font-size: 20px"> </div>
                 <input id="FileUpload" type="file" name="FileUpload">
@@ -204,10 +204,10 @@
                     <textarea class="ckeditor form-control" placeholder="Content" name="content" rows="20" cols="50" required></textarea>
                     <hr><br />
                     <!--<input type="date" name="date"><label><strong> Date of article</strong></label><hr>-->
-                </div>
+                <!-- </div>
                 <div class="div-margin-bottom-5px">
                     <input id="btnPost" name="post" type="submit" value="Post" width="50px" class="btn btn-warning" onclick="ValidateFileUpload(this,event)" ; />
-                </div>
+                </div>  -->
 
             </form>
             <div>
