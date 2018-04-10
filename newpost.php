@@ -24,9 +24,11 @@ $image="";
 $fileName = $_FILES['FileUpload']['tmp_name'];
 $fileExt = explode('.', $fileName);
 $fileActualExt = strtolower(end($fileExt));
- $allowed = array('jpg','jpeg','png','JPG');
+$path = $_FILES['FileUpload']['name'];
+$ext = pathinfo($path, PATHINFO_EXTENSION);
+ $allowed = array('jpg','jpeg','png','JPG','JPG','JPEG','PNG');
 
- if (in_array($fileActualExt,$allowed)){
+ if (in_array($ext,$allowed)){
 
 	$image =file_get_contents($_File['FileUpload']['tmp_name']);
 	$result=$article_datamaper->SaveArticle($article_title,$description,$image,$date,$Con,$Comm);
