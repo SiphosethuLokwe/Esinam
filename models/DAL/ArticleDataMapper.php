@@ -5,14 +5,16 @@ class ArticleDataMapper{
 
     }
 
-    public function UpdateArticle($Conn, $Comm, $ArticleId, $Title, $desrciption, $image, $date){
+    public function UpdateArticle($Conn,$Comm,$article_id,$article_title,$description,$image,$date){
         try{
-            $stmt = $Conn->Connect()->prepare($Comm->UpdateArticle);
-            $stmt->bindParam(1, $ArticleId, PDO::PARAM_INT);
-            $stmt->bindParam(1, $Title, PDO::PARAM_STR);
-            $stmt->bindParam(2, $Description, PDO::PARAM_STR);
+            $stmt = $Conn->Connect()->prepare($Comm->SqlUpdateArticle);
+            $stmt->bindParam(5, $article_id, PDO::PARAM_INT);
+            $stmt->bindParam(1, $article_title, PDO::PARAM_STR);
+            $stmt->bindParam(2, $description, PDO::PARAM_STR);
             $stmt->bindParam(3, $image, PDO::PARAM_LOB);
             $stmt->bindParam(4, $date, PDO::PARAM_STR);
+           
+
             $stmt->execute();
            
             return true;

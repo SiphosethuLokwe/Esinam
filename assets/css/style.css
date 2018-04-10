@@ -1884,6 +1884,11 @@ ul.blog-pagination li a:hover {
     }
 }
 
+.img-size {
+    height: auto;
+    width: 100%;
+}
+
 
 /*----------------------------------------------------------------
                         End Preloader Section

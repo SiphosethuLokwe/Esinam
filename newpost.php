@@ -30,7 +30,7 @@ $ext = pathinfo($path, PATHINFO_EXTENSION);
 
  if (in_array($ext,$allowed)){
 
-	$image =file_get_contents($_File['FileUpload']['tmp_name']);
+	$image = file_get_contents($_FILES['FileUpload']['tmp_name']);
 	$result=$article_datamaper->SaveArticle($article_title,$description,$image,$date,$Con,$Comm);
 
 	if($result)

@@ -10,23 +10,21 @@ $Conn = new Connection();
 $Comm = new Command();
 $article_datamapper = new  ArticleDataMapper();
 
-if(!isset($_GET['id'])){
-    header("Location: blogdetails.php");
+ if(!isset($_GET['id'])){
+     
 }
 $pid =$_GET['id'];//get the article id
 $article_id = $pid;
+$_SESSION['id'] =$article_id;
 $results = $article_datamapper->GetArticle($article_id,$Conn,$Comm);
-
-$title = $result->article_title;
-$description =$result->description;
-$image = $resulr->image;
-$date = $result->date;
-
-
-
-
-
+$title = $results->article_title;
+$description =$results->description;
+$image = $results->image;
+$date = $results->date;
 ?>
+
+
+
 
 
 
@@ -35,7 +33,7 @@ $date = $result->date;
 <html>
 
 <head>
-    <title>Blog posting</title>
+    <title>Edit Blog</title>
     <meta charset="UTF-8">
     <!-- For IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -224,22 +222,22 @@ $date = $result->date;
         <br>
         <br>
         <div class="container">
-            <form action="newpost.php" method="post" enctype="multipart/form-data" display:flex;>
+            <form action="EditArticle.php" method="post" enctype="multipart/form-data" display:flex;>
                 <h2>Edit Post</h2>
 
-                <input placeholder="Title" name="title" type="text" autofocus size="48" class="form-control" required>
+                <input placeholder="Title" name="title" type="text" autofocus size="48" class="form-control" required value ="<?php echo $title ?>">
                 <hr><br /><br />
                 <div id="div-error" style="color:red; font-size: 20px"> </div>
                 <input id="FileUpload" type="file" name="FileUpload">
                 <hr>
 
                 <div>
-                    <textarea class="ckeditor form-control" placeholder="Content" name="content" rows="20" cols="50" required></textarea>
+                    <textarea class="ckeditor form-control" placeholder="Content" name="content" rows="20" cols="50" required ><?php echo $description ?></textarea>
                     <hr><br />
                     <!--<input type="date" name="date"><label><strong> Date of article</strong></label><hr>-->
                 </div>
                 <div class="div-margin-bottom-5px">
-                    <input id="btnPost" name="post" type="submit" value="Post" width="50px" class="btn btn-warning" onclick="ValidateFileUpload(this,event)" ; />
+                    <input id="btnPost" name="update" type="submit" value="Update" width="50px" class="btn btn-warning" onclick="ValidateFileUpload(this,event)" ; />
                 </div>
 
             </form>
