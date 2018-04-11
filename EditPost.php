@@ -10,7 +10,7 @@ $Conn = new Connection();
 $Comm = new Command();
 $article_datamapper = new  ArticleDataMapper();
 
- if(!isset($_GET['id'])){
+if(!isset($_GET['id'])){
      
 }
 $pid =$_GET['id'];//get the article id
@@ -240,7 +240,7 @@ $date = $results->date;
         <br>
         <div class="container">
         <h2>Edit Post</h2>
-            <form action='EditArticle.php' method='POST'>
+            <form action="EditArticle.php" method='POST' enctype="multipart/form-data">
                     <br>
                     <div class=row>
                     <div class="col-sm-8">
@@ -256,20 +256,16 @@ $date = $results->date;
                     <br>
                     <br>
             </form>
-            <form action="EditArticle.php" method="post" enctype="multipart/form-data">
+            <form action="EditArticle.php" method="post">
                 
-
-
                 <input placeholder="Title" name="title" type="text" autofocus size="48" class="form-control" value ="<?php echo $title ?>">
                 <hr><br /><br />
                 <div id="div-error" style="color:red; font-size: 20px"> </div>
-                <!-- <input id="FileUpload" type="file" name="FileUpload"> -->
                 <hr>
 
                 <div>
                     <textarea class="ckeditor form-control" placeholder="Content" name="content" rows="20" cols="50" ><?php echo $description ?></textarea>
                     <hr><br />
-                    <!--<input type="date" name="date"><label><strong> Date of article</strong></label><hr>-->
                 </div>
                 <div class="div-margin-bottom-5px">
                     <input id="btnPost" name="update" type="submit" value="Update" width="50px" class="btn btn-warning"  />

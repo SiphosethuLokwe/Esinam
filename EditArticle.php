@@ -39,8 +39,8 @@ if(isset($_POST['btnimage']))
         }
         else
         {
-            $msg = $msg.'msg="File must be a jpg,png,jpeg';
-            header($loginurl2.'?'.$msg);
+            $msg = 'msg="File must be a jpg,png,jpeg';
+            header('Location:'.$loginurl.'?'.$msg.'&id='.$article_id);
         }
     }else{
         echo 'Error';

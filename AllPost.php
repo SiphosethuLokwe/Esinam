@@ -213,36 +213,33 @@ $results = $article_datamapper->GetArticles($Conn,$Comm);
             <?php 
             if(!empty($results))
             {
-            
-foreach($results as $row){
-    
-        echo '<div class="well well-lg">
-        <div class="card mb-4">
-        <img class="card-img-top img-size" src="data:image/jpeg;base64,'.base64_encode($row->image).'"; alt="Card image cap">
-        <div class="card-body">
-          <h2 class="card-title"><a href="EditPost.php?id='.$row->article_id.'">'.$row->article_title.'</a></h2>
-          <p class="card-text"> '.$row->description.'</p>
-          <a href="EditPost.php?id='.$row->article_id.' " class="btn btn-warning">Edit</a>
-          <div class="pull-right">
-          <form action="Allpost.php" method="post">
-          <a id="" href="DeletePost.php?id='.$row->article_id.'" data-id="'.$row->article_id.'" class="btn btn-danger" onclick="confirmdelete(this,event)">delete</a>
-          </form>
-          </div>
-        </div>
-        
-        <div class="card-footer text-muted">
-          Posted on '.$row->date.'
-        
-        </div>
-      </div>
-      </div>';
-
-    }
-   
-}
-else{
-    echo"<div><h3>No Post Available</h3></div>";
-}
+                foreach($results as $row)
+                {
+                    echo '<div class="well well-lg">
+                    <div class="card mb-4">
+                    <img class="card-img-top img-size" src="data:image/jpeg;base64,'.base64_encode($row->image).'"; alt="Card image cap">
+                    <div class="card-body">
+                    <h2 class="card-title"><a href="EditPost.php?id='.$row->article_id.'">'.$row->article_title.'</a></h2>
+                    <p class="card-text"> '.$row->description.'</p>
+                    <a href="EditPost.php?id='.$row->article_id.' " class="btn btn-warning">Edit</a>
+                    <div class="pull-right">
+                    <form action="Allpost.php" method="post">
+                    <a id="" href="DeletePost.php?id='.$row->article_id.'" data-id="'.$row->article_id.'" class="btn btn-danger" onclick="confirmdelete(this,event)">delete</a>
+                    </form>
+                    </div>
+                    </div>
+                    
+                    <div class="card-footer text-muted">
+                    Posted on '.$row->date.'
+                    
+                    </div>
+                    </div>
+                    </div>';
+                }
+            }
+            else{
+                echo"<div><h3>No Post Available</h3></div>";
+            }
 
             ?>
 
