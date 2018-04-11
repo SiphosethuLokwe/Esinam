@@ -1889,6 +1889,15 @@ ul.blog-pagination li a:hover {
     width: 100%;
 }
 
+.img-responsive {
+    height: auto;
+    width: auto;
+    max-height: 72px;
+    max-width: 250px;
+    vertical-align: top;
+    padding-top: 0%;
+}
+
 
 /*----------------------------------------------------------------
                         End Preloader Section

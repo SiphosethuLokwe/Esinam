@@ -727,7 +727,7 @@ $results = $article_datamapper->GetArticles($Conn,$Comm);
                             <h5>'.$row->article_title.'</h5>
                         </a>
                         <p>'.$row->description.'</p>
-                        <a class="read-more" href="Article.php?id='.$row->article_id.'" target="-blank">read more</a>
+                        <a class="read-more" href="blog.php?id='.$row->article_id.'"target="-blank">read more</a>
                     </div>
                 </div>
                 ';

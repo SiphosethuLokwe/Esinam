@@ -1,6 +1,7 @@
 /*==================Large Display==============*/
-@media only screen and (min-width: 992px) and (max-width: 1199px){
-    .container{
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .container {
         width: 970px;
     }
     h1 {
@@ -9,7 +10,7 @@
     .about-details {
         padding-left: 0;
     }
-    .about-details > h3 {
+    .about-details>h3 {
         line-height: 30px;
     }
     .single-service-item {
@@ -25,11 +26,14 @@
     }
     .contact-info {
         padding-left: 0;
-    } 
+    }
 }
+
+
 /*==================Medium Display==============*/
-@media only screen and (min-width: 768px) and (max-width: 991px){
-    .container{
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .container {
         width: 750px;
     }
     h1 {
@@ -64,7 +68,7 @@
     .contact-info {
         padding-left: 0;
     }
-    .contact-info > h3 {
+    .contact-info>h3 {
         font-size: 14px;
     }
     .post-head h3 a {
@@ -75,15 +79,17 @@
     }
 }
 
+
 /*============ Tab Display==============*/
-@media only screen and (max-width: 767px){
-    .container{
+
+@media only screen and (max-width: 767px) {
+    .container {
         width: 450px;
     }
     .logo {
         padding-top: 8px;
     }
-    .logo p{
+    .logo p {
         line-height: 55px;
     }
     header.header-area.sticky .logo {
@@ -95,30 +101,30 @@
         cursor: pointer;
         padding-right: 0;
     }
-    .navbar{
+    .navbar {
         min-height: 0;
     }
-    .nav.navbar-nav.navbar-right > li {
+    .nav.navbar-nav.navbar-right>li {
         background: #fff;
         border-bottom: 1px solid #ddd;
     }
-    .navbar-nav > li {
+    .navbar-nav>li {
         display: block;
         margin-right: 0;
         padding: 0;
     }
-    .nav.navbar-nav.navbar-right > li:last-child{
+    .nav.navbar-nav.navbar-right>li:last-child {
         border-bottom: 1px solid transparent;
     }
-    .main-menu .navbar-nav > li > a {
+    .main-menu .navbar-nav>li>a {
         color: #333;
         line-height: 50px;
         padding-left: 10px;
     }
-    header.sticky .header-area .navbar-nav > li {
+    header.sticky .header-area .navbar-nav>li {
         padding-left: 0;
     }
-    .sticky .main-menu .navbar-nav > li > a {
+    .sticky .main-menu .navbar-nav>li>a {
         color: #333;
         line-height: 50px;
     }
@@ -127,8 +133,10 @@
     }
 }
 
+
 /*=============Medium Mobile Screen==============*/
-@media only screen and (min-width: 480px) and (max-width: 767px){
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
     h1 {
         font-size: 35px;
         line-height: 50px;
@@ -141,7 +149,7 @@
         padding-left: 0;
         text-align: center;
     }
-    .about-details > h3 {
+    .about-details>h3 {
         font-size: 25px;
     }
     .team-area {
@@ -173,7 +181,9 @@
     }
 }
 
+
 /*============Small Mobile Display==============*/
+
 @media only screen and (min-width: 300px) and (max-width: 479px) {
     .container {
         width: 300px;
@@ -183,7 +193,7 @@
         line-height: 50px;
         padding-bottom: 0;
     }
-    h2{
+    h2 {
         font-size: 35px;
     }
     h5 {
@@ -198,7 +208,7 @@
         padding-left: 0;
         text-align: center;
     }
-    .about-details > h3 {
+    .about-details>h3 {
         font-size: 17px;
         line-height: 35px;
     }
@@ -213,7 +223,8 @@
         padding-left: 0;
         text-align: center;
     }
-    .btn2, .btn5 {
+    .btn2,
+    .btn5 {
         width: 100%;
     }
     .team-area {
@@ -237,5 +248,13 @@
     }
     .quote {
         padding: 0;
+    }
+    .img-responsive {
+        height: auto;
+        width: auto;
+        max-height: 72px;
+        max-width: 250px;
+        vertical-align: top;
+        padding-top: 0%;
     }
 }
