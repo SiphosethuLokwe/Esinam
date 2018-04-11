@@ -151,7 +151,7 @@ $results = $article_datamapper->GetArticles($Conn,$Comm);
         <header class="header-area">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-3">
+                    <div class="col-md-3 col-sm-3" style="overflow:auto;">
                         <div class="logo">
                             <a href="index.html">
                                 <img src="assets/images/esinam.logo.png" align="left" class="img-responsive" />

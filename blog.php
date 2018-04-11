@@ -37,9 +37,9 @@ $date = $results->date;
     <meta name="description" content="Myars Onepage Template">
     <meta name="keywords" content="new, html, Myars, design, creative, onepage, Portfolio, personal, modern">
     <!-- Main Page Title -->
-	<title>Myars Multipurpose Template</title>
+	<title>Esinam</title>
     <!--Fevicon-->
-    <link rel="icon" href="assets/images/favicon.png" type="image/x-icon" />
+    <link rel="icon" href="assets/images/esinam.logo.png" type="image/x-icon" sizes="56x56" />
 	<!--font-Google-->
 	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,600,700,800" rel="stylesheet">
 	<!-- Font-awesome css -->
@@ -89,7 +89,7 @@ $date = $results->date;
 	<header class="header-area">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3 col-sm-3" style="overflow:auto">
+				<div class="col-md-3 col-sm-3" style="overflow:auto;">
                     <div class="logo"> <!--/Start Logo Area -->
                         <a href="index.html">
                         <img src="assets/images/esinam.logo.png" align="left" class="img-responsive" />
@@ -122,9 +122,9 @@ $date = $results->date;
                                     <li>
                                     	<a class="smoth-scroll" href="portfolio.html">portfolio</a>
                                     </li>
-                                    <li>
-                                        <a class="smoth-scroll" href="blog.php">blog</a>
-                                    </li>
+                                    <!-- <li>
+                                        <a class="smoth-scroll" href="blog.php?id='<?php echo $article_id ?>'">blog</a>
+                                    </li> -->
                                     <li>
                                     	<a class="smoth-scroll" href="contact.html">Contact</a>
                                     </li>
@@ -156,7 +156,9 @@ $date = $results->date;
 			</div>
 		</div>
     </div>
+    <div class="container" >
     <h2><?php echo $title ?></h2>
+    </div>
 	<!--====================================================================
 					End Banner Section
 	=====================================================================-->
@@ -174,7 +176,7 @@ $date = $results->date;
                     <div class="col-md-6">
                         <div class="single-blog-post">
                             <div class="post-thumbnail">
-                                <img src="data:image/jpeg;base64,'.base64_encode($image).'" alt="post-thumbnail">
+                                <img src="data:image/jpeg;base64,'.base64_encode($image).'" alt="post-thumbnail" style=">
                             </div> <!-- /.post-img -->
                             <div class="post-head">
                                 <h3 class="entry-title"><a href="single-blog.html">'. $title.' </a></h3>

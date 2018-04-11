@@ -64,11 +64,11 @@ $results = $article_datamapper->GetArticles($Conn,$Comm);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Myars Onepage Template">
-    <meta name="keywords" content="new, html, Myars, design, creative, onepage, Portfolio, personal, modern">
+    <meta name="keywords" content="new, html, Esinam, design, creative, onepage, Portfolio, personal, modern">
     <!-- Main Page Title -->
     <title>Esinam Website</title>
     <!--Fevicon-->
-    <link rel="icon" href="assets/images/favicon.png" type="image/x-icon" />
+    <link rel="icon" href="assets/images/esinam.logo.png" type="image/x-icon" sizes="56x56" />
     <!--font-Google-->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,600,700,800" rel="stylesheet">
     <!-- Font-awesome css -->
@@ -727,7 +727,7 @@ $results = $article_datamapper->GetArticles($Conn,$Comm);
                             <h5>'.$row->article_title.'</h5>
                         </a>
                         <p>'.$row->description.'</p>
-                        <a class="read-more" href="blog.php?id='.$row->article_id.'"target="-blank">read more</a>
+                        <a class="read-more" href=".php?id='.$row->article_id.'"target="-blank">read more</a>
                     </div>
                 </div>
                 ';
