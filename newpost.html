@@ -130,7 +130,7 @@
 
 </head>
 
-<body style="background:url('assets/images/admin-login-background-images.jpg')">
+<body style="background:url('assets/images/aboutp.jpg') ">
     <div class="div-label-span div-margin-bottom-5px">
 
         <header class="header-area">
@@ -157,10 +157,10 @@
                                 <div class="navbar-collapse collapse">
                                     <ul class="nav navbar-nav navbar-right">
                                         <li>
-                                            <a class="smoth-scroll" href="#home">Home</a>
+                                            <a class="smoth-scroll" href="index-2.html">Logout</a>
                                         </li>
                                         <li>
-                                            <a class="smoth-scroll" href="#about">My Posts</a>
+                                            <a class="smoth-scroll" href="AllPost.php">My Posts</a>
                                         </li>
                                         <!-- <li>
                                             <a class="smoth-scroll" href="#service">Service</a>
@@ -194,19 +194,19 @@
             <form action="newpost.php" method="post" enctype="multipart/form-data" display:flex;>
                 <h2>Please write your article</h2>
 
-                <input placeholder="Title" name="title" type="text" autofocus size="48" class="form-control" required>
+                <input placeholder="Title" name="title" type="text" autofocus size="48" class="form-control" required />
                 <hr><br /><br />
                 <div id="div-error" style="color:red; font-size: 20px"> </div>
                 <input id="FileUpload" type="file" name="FileUpload">
                 <hr>
 
                 <div>
-                    <textarea class="ckeditor form-control" placeholder="Content" name="content" rows="20" cols="50" required></textarea>
+                    <textarea class="ckeditor form-control" placeholder="Content" name="content" rows="20" cols="50" required> </textarea>
                     <hr><br />
                     <!--<input type="date" name="date"><label><strong> Date of article</strong></label><hr>-->
                 </div>
                 <div class="div-margin-bottom-5px">
-                    <input id="btnPost" name="post" type="submit" value="Post" width="50px" class="btn btn-warning" onclick="ValidateFileUpload(this,event)" ; />
+                    <input id="btnPost" name="post" type="submit" value="Post" width="50px" class="btn btn-warning" />
                 </div>
 
             </form>
@@ -217,10 +217,7 @@
 
 
 
-</body>
-
-
-<script>
+</body><script>
     function myFunction() {
         var x = document.getElementById("myTopnav");
         if (x.className === "topnav") {

@@ -9,6 +9,7 @@ include ("models/DAL/ArticleDataMapper.php");
 $Conn = new Connection();
 $Comm = new Command();
 $loginurl ="EditPost.php";
+$loginurl2 ="EditArticle.php";
 $msg ="";
 $article_datamapper = new  ArticleDataMapper();
 
@@ -17,44 +18,54 @@ $article_datamapper = new  ArticleDataMapper();
 }
 $article_id = $_SESSION['id'];
 
-if(isset($_POST['update'])){
+if(isset($_POST['btnimage']))
+{
+    if(isset($_FILES['FileUpload']['name'])){
+        $fileName = $_FILES['FileUpload']['tmp_name'];
+        $fileExt = explode('.', $fileName);
+        $fileActualExt = strtolower(end($fileExt));
+        $path = $_FILES['FileUpload']['name'];
+        $ext = pathinfo($path, PATHINFO_EXTENSION);
+        $allowed = array('jpg','jpeg','png','JPG','JPG','JPEG','PNG');
+      
+        if (in_array($ext,$allowed)){
+        
+            $image =file_get_contents($_FILES['FileUpload']['tmp_name']);
+            $Updateimage = $article_datamapper->UpdateImage($Conn,$Comm,$article_id,$image);
+            if($Updateimage)
+            {
+                header('Location:AllPost.php');
+            }
+        }
+        else
+        {
+            $msg = $msg.'msg="File must be a jpg,png,jpeg';
+            header($loginurl2.'?'.$msg);
+        }
+    }else{
+        echo 'Error';
+    }
+}
+
+ if(isset($_POST['update'])){
 
     $article_title = $_POST['title'];
     $description = $_POST['content'];                          
     $date = date("Y-m-d");
     $results = $article_datamapper->GetArticle($article_id,$Conn,$Comm);
-
-echo"".$article_id ;
-echo"".  $article_title ;
-echo"".$description ;
-echo"". $date ;
-echo"". $image = $results->image;
-
-
-    $fileName = $_FILES['FileUpload']['tmp_name'];
-    $fileExt = explode('.', $fileName);
-    $fileActualExt = strtolower(end($fileExt));
-    $path = $_FILES['FileUpload']['name'];
-    $ext = pathinfo($path, PATHINFO_EXTENSION);
-    $allowed = array('jpg','jpeg','png','JPG','JPG','JPEG','PNG');
-     if (in_array($ext,$allowed)){
-    
-        $image =file_get_contents($_File['FileUpload']['tmp_name']);
-         if($_FILES['FileUpload']['tmp_name'] == " ")
-         $image = $results->image;
-        $edit_article = $article_datamapper->UpdateArticle($Conn,$Comm,$article_id,$article_title,$description,$image,$date);
-        if($edit_article)
-    {
+    $edit_article = $article_datamapper->UpdateArticle($Conn,$Comm,$article_id,$article_title,$description,$date);
         
+    if($edit_article)
+    {
         header('Location:AllPost.php');
     }
      }
      else{
-        $msg = $msg.'msg="File must be a jpg,png,jpeg';
+        $msg = $msg.'msg="Something Went wrong please try again after 5 minutes';
         header($loginurl.'?'.$msg);
      }
     
-}
+
 
 
 

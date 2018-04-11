@@ -48,8 +48,9 @@
 			var $InsertArticle ="INSERT INTO article (article_title, description, image, date) VALUES(?, ?, ?, ?)";
 			var $SqlSelectArticleById = "SELECT * FROM article WHERE article_id = ?";
 			var $SqlSelectArticles = "SELECT * FROM article";
-			var $SqlUpdateArticle = "UPDATE article SET  article_title = ?, description = ?, image = ?, date= ? WHERE article_id = ? ";
-			var $SqlDeleteArticle = "DELETE FROM article WHERE aticleId=?";
+			var $SqlUpdateArticle = "UPDATE article SET  article_title = ?, description = ?, date= ? WHERE article_id = ? ";
+			var $SqlDeleteArticle = "DELETE FROM article WHERE article_id=?";
+			var $SqlUpdateArticleimage = "UPDATE article SET image = ? WHERE article_id = ?";
 		
 		//ADDRESS
 			var $SqlInsertAddress = "INSERT INTO address(addressId, address, postalCode, cityId) VALUES(:addressId, :address, :postalCode, :cityId)";

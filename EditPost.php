@@ -21,6 +21,8 @@ $title = $results->article_title;
 $description =$results->description;
 $image = $results->image;
 $date = $results->date;
+
+
 ?>
 
 
@@ -38,6 +40,7 @@ $date = $results->date;
     <!-- For IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <style>
+   
         .img-responsive {
             height: auto;
             width: auto;
@@ -142,8 +145,22 @@ $date = $results->date;
     <script src="/node_modules/readmore-js/readmore.min.js"></script>
 
     <script src="js/validation.js"></script>
+   
 
+ <script>
+        $(document).ready(function() {
+            var Message = getParamByName('msg');
+            var diverror = document.getElementById('div-error');
+            diverror.innerHTML = Message;
+        });
 
+        function getParamByName(name) {
+            name = name.replace(/[\[]/, "\\[");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+    </script>
     <script>
         $(document).ready(function() {
             var Message = getParamByName('msg');
@@ -161,7 +178,7 @@ $date = $results->date;
 
 </head>
 
-<body style="background:url('assets/images/admin-login-background-images.jpg')">
+<body style="background:url('assets/images/aboutp.jpg')">
     <div class="div-label-span div-margin-bottom-5px">
 
         <header class="header-area">
@@ -188,10 +205,10 @@ $date = $results->date;
                                 <div class="navbar-collapse collapse">
                                     <ul class="nav navbar-nav navbar-right">
                                         <li>
-                                            <a class="smoth-scroll" href="#">Home</a>
+                                            <a class="smoth-scroll" href="index-2.html" onclick="LogoutConfirm(event) ">Logout</a>
                                         </li>
                                         <li>
-                                            <a class="smoth-scroll" href="AllPosts.php">My Posts</a>
+                                            <a class="smoth-scroll" href="AllPost.php ">My Posts</a>
                                         </li>
                                         <!-- <li>
                                             <a class="smoth-scroll" href="#service">Service</a>
@@ -222,22 +239,40 @@ $date = $results->date;
         <br>
         <br>
         <div class="container">
-            <form action="EditArticle.php" method="post" enctype="multipart/form-data" display:flex;>
-                <h2>Edit Post</h2>
+        <h2>Edit Post</h2>
+            <form action='EditArticle.php' method='POST'>
+                    <br>
+                    <div class=row>
+                    <div class="col-sm-8">
+                    <img src="data:image/jpeg;base64,<?php echo base64_encode($image)?>" align="left" class="img-responsive" />
+                    </div>
+                    </div>
+                    <br>
+                
+                    <div id="div-error" style="color:red; font-size: 20px"> </div>
+                    <input id="FileUpload" type="file" name="FileUpload">
+                    <br>
+                    <input type="submit" class="btn btn-warning" id="btnimage" name ="btnimage" value ="Change image"  />
+                    <br>
+                    <br>
+            </form>
+            <form action="EditArticle.php" method="post" enctype="multipart/form-data">
+                
 
-                <input placeholder="Title" name="title" type="text" autofocus size="48" class="form-control" required value ="<?php echo $title ?>">
+
+                <input placeholder="Title" name="title" type="text" autofocus size="48" class="form-control" value ="<?php echo $title ?>">
                 <hr><br /><br />
                 <div id="div-error" style="color:red; font-size: 20px"> </div>
-                <input id="FileUpload" type="file" name="FileUpload">
+                <!-- <input id="FileUpload" type="file" name="FileUpload"> -->
                 <hr>
 
                 <div>
-                    <textarea class="ckeditor form-control" placeholder="Content" name="content" rows="20" cols="50" required ><?php echo $description ?></textarea>
+                    <textarea class="ckeditor form-control" placeholder="Content" name="content" rows="20" cols="50" ><?php echo $description ?></textarea>
                     <hr><br />
                     <!--<input type="date" name="date"><label><strong> Date of article</strong></label><hr>-->
                 </div>
                 <div class="div-margin-bottom-5px">
-                    <input id="btnPost" name="update" type="submit" value="Update" width="50px" class="btn btn-warning" onclick="ValidateFileUpload(this,event)" ; />
+                    <input id="btnPost" name="update" type="submit" value="Update" width="50px" class="btn btn-warning"  />
                 </div>
 
             </form>

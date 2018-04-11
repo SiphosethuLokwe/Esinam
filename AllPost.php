@@ -10,7 +10,6 @@ $article_datamapper = new  ArticleDataMapper();
 $results = $article_datamapper->GetArticles($Conn,$Comm);
 //print_r($results);
 
-
 ?>
 
 <!DOCTYPE html>
@@ -126,6 +125,7 @@ $results = $article_datamapper->GetArticles($Conn,$Comm);
     <script src="/node_modules/readmore-js/readmore.min.js"></script>
 
     <script src="js/validation.js"></script>
+    <script src="js/ValidateDelete.js"></script>
 
 
     <script>
@@ -145,7 +145,7 @@ $results = $article_datamapper->GetArticles($Conn,$Comm);
 
 </head>
 
-<body style="background:url('assets/images/admin-login-background-images.jpg')">
+<body style="background:url('assets/images/aboutp.jpg')">
     <div class="div-label-span div-margin-bottom-5px">
 
         <header class="header-area">
@@ -172,10 +172,10 @@ $results = $article_datamapper->GetArticles($Conn,$Comm);
                                 <div class="navbar-collapse collapse">
                                     <ul class="nav navbar-nav navbar-right">
                                         <li>
-                                            <a class="smoth-scroll" href="#home">Home</a>
+                                            <a class="smoth-scroll" href="index-2.html" onclick="LogoutConfirm(event)">LOGOUT</a>
                                         </li>
                                         <li>
-                                            <a class="smoth-scroll" href="#about">My Posts</a>
+                                            <a class="smoth-scroll" href="AllPost.php">My Posts</a>
                                         </li>
                                         <!-- <li>
                                             <a class="smoth-scroll" href="#service">Service</a>
@@ -211,27 +211,39 @@ $results = $article_datamapper->GetArticles($Conn,$Comm);
                 <br>
              
             <?php 
+            if(!empty($results))
+            {
+            
 foreach($results as $row){
     
-            echo '<div class="well well-lg">
-            <div class="card mb-4">
-            <img class="card-img-top img-size" src="data:image/jpeg;base64,'.base64_encode($row->image).'"; alt="Card image cap">
-            <div class="card-body">
-              <h2 class="card-title"><a href="EditPost.php?id='.$row->article_id.'">'.$row->article_title.'</a></h2>
-              <p class="card-text"> '.$row->description.'</p>
-              <a href="EditPost.php?id='.$row->article_id.' " class="btn btn-warning">Edit</a>
-              <div class="pull-right">
-              <a href="#" class="btn btn-danger">delete</a>
-              </div>
-            </div>
-            
-            <div class="card-footer text-muted">
-              Posted on '.$row->date.'
-            
-            </div>
+        echo '<div class="well well-lg">
+        <div class="card mb-4">
+        <img class="card-img-top img-size" src="data:image/jpeg;base64,'.base64_encode($row->image).'"; alt="Card image cap">
+        <div class="card-body">
+          <h2 class="card-title"><a href="EditPost.php?id='.$row->article_id.'">'.$row->article_title.'</a></h2>
+          <p class="card-text"> '.$row->description.'</p>
+          <a href="EditPost.php?id='.$row->article_id.' " class="btn btn-warning">Edit</a>
+          <div class="pull-right">
+          <form action="Allpost.php" method="post">
+          <a id="" href="DeletePost.php?id='.$row->article_id.'" data-id="'.$row->article_id.'" class="btn btn-danger" onclick="confirmdelete(this,event)">delete</a>
+          </form>
           </div>
-          </div>';
+        </div>
+        
+        <div class="card-footer text-muted">
+          Posted on '.$row->date.'
+        
+        </div>
+      </div>
+      </div>';
+
+    }
+   
 }
+else{
+    echo"<div><h3>No Post Available</h3></div>";
+}
+
             ?>
 
             </form>

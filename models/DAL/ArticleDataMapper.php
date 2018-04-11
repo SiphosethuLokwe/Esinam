@@ -5,20 +5,35 @@ class ArticleDataMapper{
 
     }
 
-    public function UpdateArticle($Conn,$Comm,$article_id,$article_title,$description,$image,$date){
+    public function UpdateArticle($Conn,$Comm,$article_id,$article_title,$description,$date){
         try{
             $stmt = $Conn->Connect()->prepare($Comm->SqlUpdateArticle);
-            $stmt->bindParam(5, $article_id, PDO::PARAM_INT);
+            $stmt->bindParam(4, $article_id, PDO::PARAM_INT);
             $stmt->bindParam(1, $article_title, PDO::PARAM_STR);
             $stmt->bindParam(2, $description, PDO::PARAM_STR);
-            $stmt->bindParam(3, $image, PDO::PARAM_LOB);
-            $stmt->bindParam(4, $date, PDO::PARAM_STR);
+            $stmt->bindParam(3, $date, PDO::PARAM_STR);
            
 
             $stmt->execute();
            
             return true;
         }catch(PDOException $e){
+            echo 'ERROR: ' ."<br>" . $e->getMessage();
+            return 0;
+        }
+    }
+    public function UpdateImage($Conn,$Comm,$article_id,$image)
+    {
+        try{
+
+            $stmt=$Conn->Connect()->prepare($Comm->SqlUpdateArticleimage);
+            $stmt->bindParam(1,$image, PDO::PARAM_LOB);
+            $stmt->bindParam(2,$article_id, PDO::PARAM_INT);
+            $stmt->execute();
+            return true;
+
+        }catch(PDOException $Ex)
+        {
             echo 'ERROR: ' ."<br>" . $e->getMessage();
             return 0;
         }
@@ -76,9 +91,9 @@ class ArticleDataMapper{
         }
         
     }
-    public function DeleteArticle($Id, $Conn, $Comm) {
+    public function DeleteArticle($article_id, $Conn, $Comm) {
         $stmt = $Conn->Connect()->prepare($Comm->SqlDeleteArticle);
-        $stmt->bindValue(1, $Id, PDO::PARAM_INT);
+        $stmt->bindValue(1, $article_id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt;
     }
