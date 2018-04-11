@@ -33,18 +33,11 @@ function ValidateFileUpload(evt) {
 
 }
 
-// function validateTextBox(_this) {
-//     if (_this.validity.valueMissing) {
-//         $(_this).css('border', '1px solid red');
-//     } else {
-//         $(_this).css('border', '1px solid #ddd');
-//     }
-// }}
+function LogoutConfirm(evt) {
+    evt.preventDefault();
+    var logout = confirm("Are you sure you want to logout ");
+    if (logout) {
+        location.href = "index-2.php";
+    }
 
-// function validateTextBox(_this) {
-//     if (_this.validity.valueMissing) {
-//         $(_this).css('border', '1px solid red');
-//     } else {
-//         $(_this).css('border', '1px solid #ddd');
-//     }
-// }
+}

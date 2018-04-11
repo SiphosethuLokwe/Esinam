@@ -63,7 +63,7 @@ if($msg != ''){
                         $_SESSION['user'] = $username;
                          $_SESSION['password'] =$password;
                       
-                          header('Location: profile.php');
+                          header('Location: AllPost.php');
                  }
                      else
                      {

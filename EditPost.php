@@ -145,6 +145,8 @@ $date = $results->date;
     <script src="/node_modules/readmore-js/readmore.min.js"></script>
 
     <script src="js/validation.js"></script>
+    <script src="></script>
+
    
 
  <script>
@@ -209,6 +211,9 @@ $date = $results->date;
                                         </li>
                                         <li>
                                             <a class="smoth-scroll" href="AllPost.php ">My Posts</a>
+                                        </li>
+                                        <li>
+                                            <a class="smoth-scroll" href="newpost.html">Add Post</a>
                                         </li>
                                         <!-- <li>
                                             <a class="smoth-scroll" href="#service">Service</a>

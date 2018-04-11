@@ -177,10 +177,10 @@ $results = $article_datamapper->GetArticles($Conn,$Comm);
                                         <li>
                                             <a class="smoth-scroll" href="AllPost.php">My Posts</a>
                                         </li>
-                                        <!-- <li>
-                                            <a class="smoth-scroll" href="#service">Service</a>
+                                         <li>
+                                            <a class="smoth-scroll" href="newpost.html">Add Post</a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a class="smoth-scroll" href="#portfolio">portfolio</a>
                                         </li>
                                         <li>
@@ -188,7 +188,7 @@ $results = $article_datamapper->GetArticles($Conn,$Comm);
                                         </li>
                                         <li>
                                             <a class="smoth-scroll" href="#contact">Contact</a>
-                                        </li> -->
+                                        </li>  -->
                                     </ul>
                                 </div>
                             </div>

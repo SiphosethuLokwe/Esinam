@@ -1,3 +1,21 @@
+
+<?php
+include ("models/DAL/connection.php");
+include ("models/DAL/command.php");
+include ("models/DAL/ArticleDataMapper.php");
+
+$Conn = new Connection();
+$Comm = new Command();
+$article_datamapper = new  ArticleDataMapper();
+
+$results = $article_datamapper->GetArticles($Conn,$Comm);
+//print_r($results);
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -689,50 +707,35 @@
                 <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                     <div class="section-top text-center pb-1">
                         <h2>latest news</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod inciddunt ametfh consectetur</p>
                     </div>
                 </div>
             </div>
             <!--/End Section Top-->
-            <div class="row">
+            
+            <?php 
+
+            foreach($results as $row)
+            {
+                echo ';
+                <div class="row">
                 <div class="col-md-4 col-md-offset-0 col-sm-6 col-xs-12">
                     <div class="single-post-item">
                         <div class="blog-img">
-                            <a href="blog.html" target="-blank"><img src="assets/images/blog-1.jpg" alt="blog-image"></a>
+                            <a href="blog.html" target="-blank"><img src="data:image/jpeg;base64,'.base64_encode($row->image).'"; alt="blog-image"></a>
                         </div>
                         <a href="blog.html" target="-blank">
-                            <h5>Save life to learn coding</h5>
+                            <h5>'.$row->article_title.'</h5>
                         </a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore...</p>
-                        <a class="read-more" href="blog.html" target="-blank">read more</a>
+                        <p>'.$row->description.'</p>
+                        <a class="read-more" href="Article.php?id='.$row->article_id.'" target="-blank">read more</a>
                     </div>
                 </div>
-                <div class="col-md-4 col-md-offset-0 col-sm-6 col-xs-12">
-                    <div class="single-post-item">
-                        <div class="blog-img">
-                            <a href="blog.html" target="-blank"><img src="assets/images/blog-2.jpg" alt="blog-image"></a>
-                        </div>
-                        <a href="blog.html" target="-blank">
-                            <h5>Love coding is just fun</h5>
-                        </a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore...</p>
-                        <a class="read-more" href="blog.html" target="-blank">read more</a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3 col-xs-12 ">
-                    <div class="single-post-item">
-                        <div class="blog-img">
-                            <a href="blog.html" target="-blank"><img src="assets/images/blog-3.jpg" alt="blog-image"></a>
-                        </div>
-                        <a href="blog.html" target="-blank">
-                            <h5>Repellendus aliquid option</h5>
-                        </a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore...</p>
-                        <a class="read-more" href="blog.html" target="-blank">read more</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+                ';
+           
+            }
+          
+            ?>
+       
     </section>
     <!-- ===================================================================
                             End Partner Section
