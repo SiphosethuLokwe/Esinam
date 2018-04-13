@@ -7,9 +7,7 @@ Session_Start();
 
 <?php
 // Check if user is loggedin
-if(!isset($_SESSION['user'])){
-     header('Location: Login.php');
-}
+// 
 ?>
 
 <?php
@@ -38,6 +36,7 @@ if($msg != ''){
 }else{
     $username = $validate->GetUsername();
     $password = $validate->GetPassword();
+    $_SESSION['user'] = $username;
     try
     {
         $Conn = new Connection();
@@ -63,12 +62,12 @@ if($msg != ''){
                         $_SESSION['user'] = $username;
                          $_SESSION['password'] =$password;
                       
-                          header('Location: AllPost.php');
+                          header('Location:AllPost.php');
                  }
                      else
                      {
                         $msg = $msg.'msg=Incorrect username or password';
-                        header($loginurl.'?'.$msg);
+                        header('Location:'.$loginurl.'?'.$msg);
 
                      }
 
@@ -77,7 +76,7 @@ if($msg != ''){
         {
             // Check if is confirmed
              $msg = $msg.'msg=You do not have an account';
-             header($loginurl.'?'.$msg);
+             header('Location:'.$loginurl.'?'.$msg);
            
          }
     

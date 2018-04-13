@@ -37,7 +37,21 @@ function LogoutConfirm(evt) {
     evt.preventDefault();
     var logout = confirm("Are you sure you want to logout ");
     if (logout) {
-        location.href = "index-2.php";
+        location.href = "index.php";
     }
 
 }
+
+var password = document.getElementById("txtPass")
+  , confirm_password = document.getElementById("txtConfPass");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;

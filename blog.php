@@ -24,8 +24,6 @@ $date = $results->date;
 ?>
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -111,8 +109,7 @@ $date = $results->date;
                             <div class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav navbar-right">
                                     <li>
-                                    	<a class="smoth-scroll" href="index-2.php">Home</a>
-                                    </li>
+                                    	<a class="smoth-scroll" href="index.php">Home</a>
                                     <li>
                                     	<a class="smoth-scroll" href="about.html">About</a>
                                     </li>
@@ -148,7 +145,7 @@ $date = $results->date;
 				<div class="com-md-12">
 					<div class="breadcrumb-area text-center">
 					   <ul class="breadcrumb">
-						  <li><a href="index-2.php">home</a></li>
+						  <li><a href="index.php">home</a></li>
 						  <li class="active">blog</li>
 						</ul>
 					</div>
@@ -207,10 +204,10 @@ $date = $results->date;
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 					<div class="footer-logo">
-						<a href="index.html">Myars</a>
+						<a href="index.php">Esinam</a>
 					</div>
 					<div class="copy-right">
-						<p>Copyright &copy; by Myars 2017 | All Rights Reserved</p>
+						<p>Copyright &copy; by Esinam 2017 | All Rights Reserved</p>
 					</div> <!-- End Copyright Area -->
 				</div>
 			</div>

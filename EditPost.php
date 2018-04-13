@@ -9,6 +9,10 @@ include ("models/DAL/ArticleDataMapper.php");
 $Conn = new Connection();
 $Comm = new Command();
 $article_datamapper = new  ArticleDataMapper();
+if(!isset($_SESSION['user']))
+{
+        header('Location:Login.php')
+}
 
 if(!isset($_GET['id'])){
      
@@ -24,12 +28,6 @@ $date = $results->date;
 
 
 ?>
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html>
@@ -145,7 +143,7 @@ $date = $results->date;
     <script src="/node_modules/readmore-js/readmore.min.js"></script>
 
     <script src="js/validation.js"></script>
-    <script src="></script>
+    <script src="s/validateDelete.js"></script>
 
    
 
@@ -207,7 +205,7 @@ $date = $results->date;
                                 <div class="navbar-collapse collapse">
                                     <ul class="nav navbar-nav navbar-right">
                                         <li>
-                                            <a class="smoth-scroll" href="index-2.html" onclick="LogoutConfirm(event) ">Logout</a>
+                                            <a class="smoth-scroll" href="index.php" onclick="LogoutConfirm(event) ">Logout</a>
                                         </li>
                                         <li>
                                             <a class="smoth-scroll" href="AllPost.php ">My Posts</a>

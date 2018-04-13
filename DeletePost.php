@@ -9,7 +9,7 @@ $Conn = new Connection();
 $Comm = new Command();
 $article_datamapper = new  ArticleDataMapper();
 if(!isset($_GET['id'])){
-    header('Location:Admindashboard.php');
+    header('Location:AllPost.php');
 }
 else{
     
@@ -22,7 +22,6 @@ else{
 
     
 }
-
 
 
 

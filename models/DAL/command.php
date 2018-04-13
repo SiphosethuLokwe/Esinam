@@ -7,7 +7,7 @@
 			var $CheckIfPassMatch = "SELECT 1 from user WHERE username = ? and password = ? LIMIT 1";
 			// var $SqlConfirmed = "SELECT 1 from account WHERE Username = ? and isConfirmed = ? LIMIT 1";
 			var $SelectAccountId = "SELECT user_id from user WHERE username = ?";
-			var $SqlUpdatePassword = "UPDATE  user SET account.Password = ? WHERE accountId = ?";
+			var $SqlUpdatePassword = "UPDATE  user SET password = ?, LastUpdate = ?  WHERE username = ?";
 			var $SqlUpdateUserName = "UPDATE account SET username = ? WHERE user_id = ?";
 			// var $SqlConfirmAccount = "UPDATE account SET isConfirmed = ? WHERE accountId = ?";
 

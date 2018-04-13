@@ -125,23 +125,8 @@ $results = $article_datamapper->GetArticles($Conn,$Comm);
     <script src="/node_modules/readmore-js/readmore.min.js"></script>
 
     <script src="js/validation.js"></script>
+
     <script src="js/ValidateDelete.js"></script>
-
-
-    <script>
-        $(document).ready(function() {
-            var Message = getParamByName('msg');
-            var diverror = document.getElementById('div-error');
-            diverror.innerHTML = Message;
-        });
-
-        function getParamByName(name) {
-            name = name.replace(/[\[]/, "\\[");
-            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-                results = regex.exec(location.search);
-            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-        }
-    </script>
 
 </head>
 
@@ -171,24 +156,25 @@ $results = $article_datamapper->GetArticles($Conn,$Comm);
                                 </div>
                                 <div class="navbar-collapse collapse">
                                     <ul class="nav navbar-nav navbar-right">
-                                        <li>
-                                            <a class="smoth-scroll" href="index-2.html" onclick="LogoutConfirm(event)">LOGOUT</a>
-                                        </li>
-                                        <li>
-                                            <a class="smoth-scroll" href="AllPost.php">My Posts</a>
-                                        </li>
-                                         <li>
-                                            <a class="smoth-scroll" href="newpost.html">Add Post</a>
-                                        </li>
+                                    <li>
+                                                        <a class="smoth-scroll" href="index.php" onclick="LogoutConfirm(event);">Logout</a>                                       
+                                                        </li>
+                                                   <li>
+                                                       <a class="smoth-scroll" href="AllPost.php">My Posts</a>
+                                                   </li>
+                                                  
+                                                    <li>
+                                                       <a class="smoth-scroll" href="newpost.html">Add Post</a>
+                                                   </li>
+                                                   <li>
+                                                       <a class="smoth-scroll" href="ChangePassword.html">Change Password</a>
+                                                   </li>
                                         <!-- <li>
-                                            <a class="smoth-scroll" href="#portfolio">portfolio</a>
-                                        </li>
-                                        <li>
                                             <a class="smoth-scroll" href="#blog">Newsletter</a>
                                         </li>
                                         <li>
                                             <a class="smoth-scroll" href="#contact">Contact</a>
-                                        </li>  -->
+                                        </li>  --> 
                                     </ul>
                                 </div>
                             </div>

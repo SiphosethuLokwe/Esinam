@@ -2,6 +2,13 @@
 <?php 
 
 session_start();
+
+
+if(!isset($_SESSION['user']))
+{
+        header('Location:Login.php')
+}
+
 include ("models/DAL/connection.php");
 include ("models/DAL/command.php");
 include ("models/DAL/ArticleDataMapper.php");

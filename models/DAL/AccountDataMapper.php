@@ -111,11 +111,12 @@ class AccountDataMapper{
             return 0;
         }
     }
-    public function ChangePassword($accId, $NewPassword, $Conn, $Comm){
+    public function ChangePassword($username,$LastUpdate,$password,$Conn,$Comm){
         try{
             $stmt = $Conn->Connect()->prepare($Comm->SqlUpdatePassword);
-            $stmt->bindParam(1, $NewPassword, PDO::PARAM_STR);
-            $stmt->bindParam(2, $accId, PDO::PARAM_INT);
+            $stmt->bindParam(1, $password, PDO::PARAM_STR);
+            $stmt->bindParam(2, $LastUpdate, PDO::PARAM_STR);
+            $stmt->bindParam(3, $username, PDO::PARAM_STR);
             $stmt->execute();
         }catch(PDOException $e){
             $Error = new errorlogger();
@@ -123,6 +124,9 @@ class AccountDataMapper{
             $Error->GetErrorInfo($e->getMessage());
         }
     }
+
+
+
     public function ChangeUsername($accId, $NewUsername, $Conn, $Comm){
         try{
             $stmt = $Conn->Connect()->prepare($Comm->SqlUpdateUserName);
