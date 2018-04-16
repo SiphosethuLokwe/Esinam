@@ -205,7 +205,7 @@ $results = $article_datamapper->GetArticles($Conn,$Comm);
                     <div class="card mb-4">
                     <img class="card-img-top img-size" src="data:image/jpeg;base64,'.base64_encode($row->image).'"; alt="Card image cap">
                     <div class="card-body">
-                    <h2 class="card-title"><a href="EditPost.html?id='.$row->article_id.'">'.$row->article_title.'</a></h2>
+                    <h2 class="card-title"><a href="EditPost.php?id='.$row->article_id.'">'.$row->article_title.'</a></h2>
                     <p class="card-text"> '.$row->description.'</p>
                     <a href="EditPost.html?id='.$row->article_id.' " class="btn btn-warning">Edit</a>
                     <div class="pull-right">

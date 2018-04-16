@@ -737,7 +737,7 @@ if(!empty($results))
 }
 else{
     echo'<div>
-    <h3>No News Available</h3>
+    <h2>No News Available</h2>
     </div>';
 }
             

@@ -713,7 +713,7 @@ $results = $article_datamapper->GetArticles($Conn,$Comm);
             <!--/End Section Top-->
             
             <?php 
-if(!empty($results))
+if(!empty($result))
 {
     foreach($results as $row)
     {
@@ -737,7 +737,7 @@ if(!empty($results))
 }
 else{
     echo'<div>
-    <h3>No News Available</h3>
+    <h2>No News Available</h2>
     </div>';
 }
             
