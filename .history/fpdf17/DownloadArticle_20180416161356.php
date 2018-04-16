@@ -24,64 +24,7 @@ foreach($result as $row)
 
 ?>
 
-<!DOCTYPE HTML>
-<html>
-    <title></title>
-
-    <header>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <title>Newpost</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="56x56" href="images/fav-icon/icon.png">
-    <link rel="stylesheet" type="text/css" href="css/style1.css">
-    <script type="text/javascript" src="vendor/jquery.2.2.3.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/v.js"></script>
-
-    <script src="//cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="icon" href="assets/images/esinam.logo.png" type="image/x-icon" sizes="56x56" />
-    <!--font-Google-->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,600,700,800" rel="stylesheet">
-    <!-- Font-awesome css -->
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <!-- Animate css -->
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <!-- Magnific css -->
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <!-- Owl carousel css -->
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <!-- Bootstrap css -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <!-- Main style css -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- responsive css -->
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <!--readmore jquery-->
-    <script src="/node_modules/readmore-js/readmore.min.js"></script>
-
-    <script src="js/validation.js"></script>
-
-    <script src="js/ValidateDelete.js"></script>
-
-
-
-    </header>
-    <body>
-
-
-
-    </body>
-
-
-
-
-</html>
-
 <?php 
-
 
 $obj_pdf = new TCPDF('p',PDF_UNIT,PDF_PAGE_FORMAT,true,'UTF-8',false);
 $obj_pdf->SetCreateColor(PDF_CREATOR);
@@ -113,8 +56,8 @@ $content= '<h4 align=center">'.$title.'</h4>
 
 
 ';
-$content = fatch_data();
-$obj_pdf->Output('file.pdf','I');
+
+
 ?>
 
 
