@@ -19,7 +19,7 @@ foreach($result as $row)
 
 }
 
-echo''.$article_title;
+
 
 
 ?>

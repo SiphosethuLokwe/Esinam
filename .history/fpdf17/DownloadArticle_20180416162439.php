@@ -19,7 +19,7 @@ foreach($result as $row)
 
 }
 
-echo''.$article_title;
+
 
 
 ?>
@@ -87,8 +87,8 @@ $obj_pdf = new TCPDF('p',PDF_UNIT,PDF_PAGE_FORMAT,true,'UTF-8',false);
 $obj_pdf->SetCreateColor(PDF_CREATOR);
 $obj_pdff->SetTitle($title);
 $obj_pdf->setHeaderData('','',PDF_HEADER_TITLE,PDF_HEADER_STRING);
-$obj_pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN,'',PDF_FONT_SIZE_MAIN));
-$obj_pdf->setFooterFont(array(PDF_FONT_NAME_DATA,'',PDF_FONT_SIZE_DATA));
+$obj_pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN,'',PDF_FONT_SIZE_MAIN));
+$obj_pdf->setFooterFont(Array(PDF_FONT_NAME_DATA,'',PDF_FONT_SIZE_DATA));
 $obj_pdf->SetDefaultMonospacedFont('helvetica');
 $obj_pdf->setFooterMargin(PDF_MARGIN_LEFT,'10',PDF_MARGIN_RIGHT);
 $obj_pdf->SetMargins(PDF_MARGIN_LEFT,'10',PDF_MARGIN_RIGHT);
